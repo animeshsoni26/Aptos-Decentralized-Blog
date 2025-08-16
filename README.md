@@ -1,72 +1,155 @@
-# Decentralized Blog UI
+# Aptos Decentralized Blog
 
-This project is a decentralized blogging platform built on the Aptos blockchain. It allows users to create and view blog posts securely and transparently.
+A decentralized blog platform where users can create and manage posts on the Aptos blockchain, featuring a clean React frontend and a Move-based smart contract backend. This project leverages web3 and Aptos's Move language to provide a censorship-resistant, user-owned blogging experience.
+
+---
+
+## Table of Contents
+
+- [Demo & Screenshots](#demo--screenshots)  
+- [Features](#features)  
+- [Architecture & Tech Stack](#architecture--tech-stack)  
+- [Project Structure](#project-structure)  
+- [Setup & Local Development](#setup--local-development)  
+  - [Prerequisites](#prerequisites)  
+  - [Backend (Move) Setup](#backend-move-setup)  
+  - [Frontend Setup](#frontend-setup)  
+- [Testing](#testing)  
+- [Deployment](#deployment)  
+- [Contributing](#contributing)  
+- [License](#license)  
+
+---
+
+## Demo & Screenshots
+
+https://aptos-decentralized-blog.vercel.app/
+<img width="1918" height="962" alt="image" src="https://github.com/user-attachments/assets/80198afd-bfb4-4e9f-bd42-61023de46f2c" />
+
+---
 
 ## Features
 
-- Create new blog posts with a title and content hash.
-- View a list of all blog posts.
-- Interact with the Aptos blockchain for storing and retrieving posts.
+- Smart contract-based blog post creation and storage using Aptos & Move  
+- Connect wallet functionality — decentralized identity and interaction  
+- Clean, responsive React UI for creating and viewing posts  
+- Full-stack architecture combining Move on-chain logic with frontend interactions
 
-## Technologies Used
+---
 
-- React: A JavaScript library for building user interfaces.
-- TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
-- Aptos: A blockchain platform for decentralized applications.
+## Architecture & Tech Stack
+
+- **Backend:** Aptos Move smart contract (`.move` files under `sources/`)  
+- **Config:** `Move.toml` for package and named address setup  
+- **Frontend:** React.js with modern styling (`App.jsx`, CSS files, `components/`, etc.)  
+- **Tools & Utilities:**
+  - `aptos` CLI for compiling & deploying contracts  
+  - `npm` / `yarn` for frontend dev and build scripts  
+  - Vercel for deployment (optional)  
+- **Version Control:** Git and GitHub (repo: `Aptos-Decentralized-Blog`)
+
+---
 
 ## Project Structure
 
+```plaintext
+aptos/
+├── sources/
+│   └── blog.move           # Move module containing smart contract logic
+├── Move.toml               # Aptos package config, addresses, dependencies
+├── public/                 # Static assets and public HTML
+│   └── index.html
+├── src/                    # React frontend source
+│   ├── components/
+│   ├── App.jsx
+│   ├── index.js
+│   └── styles/             # CSS files
+├── package.json            # Frontend dependencies
+├── package-lock.json
+├── .env                    # Environment variables (keep secret, don't push)
+├── .env.example            # Example env variables (safe to push)
+├── README.md
+└── .gitignore
 ```
-decentralized-blog-ui
-├── public
-│   └── index.html          # Main HTML file
-├── src
-│   ├── components          # React components
-│   │   ├── BlogPost.tsx    # Component to display a single blog post
-│   │   ├── CreatePostForm.tsx # Form for creating a new blog post
-│   │   └── PostList.tsx     # Component to display a list of blog posts
-│   ├── pages               # Application pages
-│   │   └── Home.tsx        # Main page of the application
-│   ├── services            # Services for interacting with Aptos
-│   │   └── aptosClient.ts  # Functions to interact with the Aptos blockchain
-│   ├── App.tsx             # Main application component
-│   ├── index.tsx           # Entry point for the React application
-│   └── types               # TypeScript types and interfaces
-│       └── index.ts
-├── package.json            # npm configuration file
-├── tsconfig.json           # TypeScript configuration file
-└── README.md               # Project documentation
-```
+---
+## Setup & Local Development
 
-## Setup Instructions
+### Prerequisites
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd decentralized-blog-ui
-   ```
+- Node.js & npm installed  
+- Aptos CLI configured (linked to devnet)  
+- An Aptos account funded with testnet tokens  
 
-2. Install dependencies:
-   ```
+### Backend (Move) Setup
+
+1. Navigate to the root of the project and compile the Move module:  
+   ```bash
+   aptos move compile --named-addresses module=default
+   
+2. Deploy (publish) the contract to Aptos Devnet:
+   ```bash
+   aptos move publish --named-addresses module=default --assume-yes
+Take note of the published contract address for frontend integration.
+   
+### Frontend Setup
+1. Install dependencies:
+   ```bash
    npm install
-   ```
-
-3. Start the development server:
-   ```
+2. Create a .env file from .env.example and fill in variables if needed.
+3. Launch the React app:
+   ```bash
    npm start
+4. The app will open in your browser at http://localhost:3000.
+---
+## Testing
+
+### Smart Contract (Move)
+
+Run Move unit tests (if implemented):
+   ```bash
+   aptos move test
    ```
+### Frontend
 
-4. Open your browser and navigate to `http://localhost:3000` to view the application.
+If frontend tests are set up, run them with:
+   ```bash
+   npm test
+   ```
+---
+## Deployment
 
-## Usage
+- Deploy the frontend using Vercel by connecting your Aptos-Decentralized-Blog repository and clicking "Deploy".
 
-- Use the form on the home page to create a new blog post by entering a title and content hash.
-- View the list of blog posts displayed below the form.
+- Ensure your build command is set to npm run build and the output directory is set to build/.
 
+- For the backend, publish the Move contract as described in Setup steps.
+---
 ## Contributing
+1. Contributions are welcome! To propose features, improvements, or issues:
 
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+2. Fork the repository
+
+3. Create a feature branch:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+4. Make changes and run tests
+
+5. Commit and push your branch
+
+6. Open a Pull Request for review
+---
+
+## Acknowledgements
+
+- Built on the **Aptos blockchain** using **Move**, praised for its high scalability and parallel transaction execution  
+- Inspired by decentralized blog architectures in Move ecosystems  
+---
 
 ## License
 
-This project is licensed under the MIT License.
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+
+
+
+
