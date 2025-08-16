@@ -1,0 +1,250 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input,
+textarea,
+button {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* ===== App Wrapper ===== */
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f4f6;
+}
+
+/* ===== Header ===== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+/* ===== Wallet Button ===== */
+.wallet-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wallet-button:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.wallet-button.connected {
+    background-color: #059669;
+}
+
+.wallet-button.connected:hover {
+    background-color: #047857;
+}
+
+/* ===== Main Content ===== */
+.main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    flex: 1;
+}
+
+/* ===== Create Post Form ===== */
+.create-post {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #2563eb;
+    margin-bottom: 2rem;
+}
+
+.create-post>*+* {
+    margin-top: 1rem;
+}
+
+.create-post input,
+.create-post textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    background-color: #f9fafb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.create-post input:focus,
+.create-post textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.create-post textarea {
+    height: 8rem;
+    resize: vertical;
+}
+
+.create-post button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.create-post button:hover {
+    background-color: #1d4ed8;
+}
+
+/* ===== Posts ===== */
+.posts {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* ===== Post Card ===== */
+.post-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.post-card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.post-card p {
+    color: #4b5563;
+}
+
+/* ===== Loading Text ===== */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* ===== Tags ===== */
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+/* ===== Post Actions ===== */
+.post-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.post-actions button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border: none;
+}
+
+/* Edit Button */
+.edit-button {
+    background-color: #fbbf24;
+    color: #fff;
+}
+
+.edit-button:hover {
+    background-color: #f59e0b;
+}
+
+/* Delete Button */
+.delete-button {
+    background-color: #ef4444;
+    color: #fff;
+}
+
+.delete-button:hover {
+    background-color: #dc2626;
+}
+
+/* ===== Responsive (Optional) ===== */
+@media (max-width: 640px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .wallet-button {
+        align-self: flex-end;
+    }
+
+    .main {
+        padding: 1rem 1rem;
+    }
+}

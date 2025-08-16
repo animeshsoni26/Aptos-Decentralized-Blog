@@ -1,0 +1,52 @@
+{
+  "name": "decentralized-blog",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@aptos-labs/ts-sdk": "^1.8.0",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy-move": "cd move && aptos move publish --profile testnet",
+    "dev": "npm start",
+    "test": "npm run test:frontend && npm run test:move",
+    "test:frontend": "react-scripts test --watchAll=false",
+    "test:move": "aptos move test"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.7.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "autoprefixer": "^10.4.13",
+    "jest": "^27.5.1",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss|sass)$": "identity-obj-proxy"
+    }
+  }
+}

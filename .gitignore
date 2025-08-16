@@ -1,0 +1,23 @@
+# Node.js / React
+node_modules/
+.env
+.env.local
+.env.*.local
+build/
+dist/
+
+# Aptos
+.aptos/
+.move/
+*.mvir
+*.mv
+*.log
+
+# IDE/editor files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# OS-specific
+Thumbs.db
